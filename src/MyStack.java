@@ -53,10 +53,11 @@ public class MyStack {
         System.out.println("Middle: " + middle.data);
     }
 
-    public void deleteMiddle() {
+    public int deleteMiddle() {
         if (middle == null) {
-            return;
+            return -1;
         }
+        int value = middle.data;
         middle.next.prev = middle.prev;
         middle.prev.next = middle.next;
         if (size % 2 == 0 && head != null) {
@@ -65,5 +66,6 @@ public class MyStack {
             middle = middle.prev;
         }
         size--;
+        return value;
     }
 }
